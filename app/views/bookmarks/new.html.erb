@@ -1,0 +1,5 @@
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment, label: "Comment", required: false %>
+  <%= f.association :movie, label: "Movie", required: false %>
+  <%= f.submit %>
+<% end %>

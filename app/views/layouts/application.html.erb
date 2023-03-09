@@ -5,12 +5,41 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body>
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://img.freepik.com/premium-vector/striped-box-container-with-delicious-popcorn-white-background_281653-1140.jpg?w=2000" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+              <%= link_to "My Lists", lists_path, class: "nav-link" %>
+              <%# <a class="nav-link" href="">My Lists</a> %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "New list", new_list_path, class: "nav-link" %>
+              <%# <a class="nav-link" href="../lists/new.html.erb">New List</a> %>
+            </li>
+            <li class="nav-item dropdown">
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+              </div>
+            </li>
+            <!--li class="nav-item"-->
+            <!--/li-->
+          </ul>
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
