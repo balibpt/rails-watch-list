@@ -69,5 +69,6 @@ group :development do
   # gem "spring"
 end
 
+gem 'dotenv-rails', groups: %i[development test]
 gem 'rails-controller-testing', group: [:test]
 gem 'rspec-rails', group: [:test]
