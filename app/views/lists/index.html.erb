@@ -1,12 +1,20 @@
-<h1>
-  Save any kind of movie
-</h1>
-<%= link_to "New list", new_list_path %>
-<h2>
-  My lists
-</h2>
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://www.nerdly.co.uk/wp-content/uploads/2017/04/superheroes-banner.jpg);">
+  <div class="container text-center">
+    <h1>Save any kind of movie</h1>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="d-flex justify-content-between align-items-center mb-2 mt-2">
+    <h2>
+      My lists
+    </h2>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-success" %>
+  </div>
+  <div class="d-flex align-items-center justify-content-between">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg)">
+        <%= link_to list.name, list_path(list), class: "text-decoration-none text-white" %>
+      </div>
+    <% end %>
+  </div>
+</div>
