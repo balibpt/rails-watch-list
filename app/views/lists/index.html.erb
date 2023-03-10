@@ -12,7 +12,7 @@
   </div>
   <div class="d-flex align-items-center justify-content-between">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.img_url %>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
         <%= link_to list.name, list_path(list), class: "text-decoration-none text-white" %>
         <%= link_to "Delete", list_path(list),
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
