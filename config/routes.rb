@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'lists#index'
 
-  resources :lists, except: [:index] do
+  resources :lists do
     resources :bookmarks, only: %i[new create]
   end
   resources :bookmarks, only: %i[destroy]
