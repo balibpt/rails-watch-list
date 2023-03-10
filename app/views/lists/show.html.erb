@@ -10,14 +10,25 @@
     </h2>
     <%= link_to "Add a Movie", new_list_bookmark_path(list_id: @list.id), class: "btn btn-success" %>
   </div>
-  <div class="d-flex align-items-center justify-content-between">
-    <% @list.movies.each do |movie| %>
-      <p><%= movie.title %></p>
-      <% movie.bookmarks.each do |bookmark| %>
-        <%= bookmark.comment %>
-        <%= link_to "delete", bookmark_path(bookmark),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
+  <div style="display: flex; flex-wrap: wrap;" class="align-items-center justify-content-between">
+    <% [@list.movies,@list.movies].flatten.each do |movie| %>
+      <div class="card-trip mb-5">
+        <img src="<%= movie.poster_url %>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2 style="display: inline"><%= movie.title %></h2>
+            <p style="display: inline; color: grey; font-size: 16px;">• <%= movie.rating %> <i class="fa-solid fa-star" style="color: #f5c618"></i></p>
+            <p><%= movie.overview %></p>
+            <div class="d-flex justify-content-between align-items-center align-self-end">
+              <% movie.bookmarks.each do |bookmark| %>
+                <p style="font-size: 16px; margin-top: 5px;"><i class="fa-solid fa-quote-left"></i><span style="margin-left: 4px;"><%= bookmark.comment %></span></p>
+                <%= link_to "delete", bookmark_path(bookmark),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none text-danger" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
